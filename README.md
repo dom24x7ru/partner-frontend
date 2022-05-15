@@ -1,4 +1,4 @@
-# dom24admin
+# project
 
 ## Project setup
 ```

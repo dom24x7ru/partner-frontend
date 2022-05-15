@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- Popper JS [ OPTIONAL ] -->
+  <script src="vendors/popperjs/popper.min.js" defer></script>
+
+  <!-- Bootstrap JS [ OPTIONAL ] -->
+  <script src="vendors/bootstrap/bootstrap.min.js" defer></script>
+
+  <!-- Nifty JS [ OPTIONAL ] -->
+  <script src="js/nifty.js" defer></script>
+
+  <!-- Nifty Settings [ DEMO ] -->
+  <script src="js/demo-purpose-only.js" defer></script>
+
+  <!-- Initialize [ SAMPLE ] -->
+  <script src="pages/dashboard-1.js" defer></script>
+  <!-- built files will be auto injected -->
+  <!-- <script src="test.js"></script> -->
+</body>
+
 </html>
