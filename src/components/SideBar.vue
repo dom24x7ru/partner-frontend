@@ -58,28 +58,24 @@
 
                 <!-- Navigation Category -->
                 <div class="mainnav__categoriy py-3">
-                    <h6 class="mainnav__caption mt-0 px-3 fw-bold">Navigation</h6>
+                    <h6 class="mainnav__caption mt-0 px-3 fw-bold">Навигация</h6>
                     <ul class="mainnav__menu nav flex-column">
 
                         <!-- Link with submenu -->
                         <li class="nav-item has-sub">
 
                             <a href="#" class="mininav-toggle nav-link active"><i class="demo-pli-home fs-5 me-2"></i>
-                                <span class="nav-label ms-1">Dashboard</span>
+                                <span class="nav-label ms-1">Разделы</span>
                             </a>
 
                             <!-- Dashboard submenu list -->
                             <ul class="mininav-content nav collapse">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">Dashboard 1</a>
+                                    <router-link class="nav-link" to="/">Home</router-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./dashboard-2.html" class="nav-link">Dashboard 2</a>
+                                    <router-link class="nav-link" to="/about">About</router-link>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="./dashboard-3.html" class="nav-link">Dashboard 3</a>
-                                </li>
-
                             </ul>
                             <!-- END : Dashboard submenu list -->
 
@@ -190,3 +186,12 @@ export default {
     },
 }
 </script>
+
+<style lang="scss">
+    .nav-link{
+        font-weight: bold;
+    }
+    .root .mainnav__inner .nav-link.router-link-exact-active{
+        color: #25476a;
+    }
+</style>
