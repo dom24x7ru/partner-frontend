@@ -1,37 +1,49 @@
 <template>
-  <section id="content" class="content">
-      <div class="content__header content__boxed overlapping">
-          <div class="content__wrap">
+<section id="content" class="content">
+    <div class="content__header content__boxed overlapping">
+        <div class="content__wrap">
 
-              <!-- Page title and information -->
-              <h1 class="page-title mb-2">Dashboard</h1>
-              <h2 class="h5">Welcome back to the Dashboard.</h2>
-              <p>Scroll down to see quick links and overviews of your Server, To do list<br> Order status or get some Help using Nifty.</p>
-              <!-- END : Page title and information -->
+            <!-- Page title and information -->
+            <h1 class="page-title mb-2">Dashboard</h1>
+            <h2 class="h5">Welcome back to the Dashboard.</h2>
+            <p>Scroll down to see quick links and overviews of your Server, To do list<br> Order status or get some Help using Nifty.</p>
+            <!-- END : Page title and information -->
 
-          </div>
-      </div>
+        </div>
+    </div>
 
-      <div class="content__boxed">
+    <div class="content__boxed">
+        <div class="content__wrap">
+            <Map></Map>
+        </div>
+    </div>
+    <div class="content__boxed">
+        <div class="content__wrap">
+          <MainData></MainData>   
+        </div>
+    </div>
 
-      </div>
-      <div class="content__boxed bg-gray-500 my-3 pt-3">
+    <Footer></Footer>
 
-      </div>
-
-      <Footer></Footer>
-
-  </section>
+</section>
 </template>
 
 <script>
-// @ is an alias to /src
 import Footer from '@/components/Footer'
+import Map from '@/components/dashboard/Map'
+import MainData from '@/components/dashboard/MainData'
 
 export default {
-  name: 'Home',
-  components: {
-    Footer
-  }
+    name: 'Home',
+    components: {
+        Footer,
+        Map,
+        MainData
+    },
+    data() {
+        return {
+
+        };
+    },
 }
 </script>
