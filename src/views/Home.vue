@@ -34,7 +34,7 @@ import Map from '@/components/dashboard/Map'
 import MainData from '@/components/dashboard/MainData'
 
 export default {
-    name: 'Home',
+    name: 'MyHome',
     components: {
         Footer,
         Map,

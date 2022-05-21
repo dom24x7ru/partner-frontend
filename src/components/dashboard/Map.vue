@@ -8,7 +8,7 @@
 import { yandexMap } from 'vue-yandex-maps'
 
 export default {
-    name: 'Map',
+    name: 'MyMap',
     components: {
         yandexMap
     },

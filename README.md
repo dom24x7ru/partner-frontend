@@ -1,4 +1,4 @@
-# project
+# partner
 
 ## Project setup
 ```

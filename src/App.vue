@@ -18,7 +18,7 @@
   import Header from '@/components/Header.vue';
 
   export default {
-    name: 'Main',
+    name: 'MyMain',
     components: {
         SideBar,
         Header

@@ -59,7 +59,7 @@
 import logo from "@/assets/img/logo.svg";
 
 export default {
-  name: 'Header',
+  name: 'MyHeader',
   data() {
         return {
             images: {
