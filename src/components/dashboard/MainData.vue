@@ -6,11 +6,11 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Всего домов
-                    <span class="badge badge-primary badge-pill">11114</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.house.count}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Всего квартир
-                    <span class="badge badge-primary badge-pill">1112</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.house.flats}}</span>
                 </li>
             </ul>
         </div>
@@ -21,11 +21,11 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Пользователей
-                    <span class="badge badge-primary badge-pill">999</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.users.count}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Сегодня онлайн
-                    <span class="badge badge-primary badge-pill">120</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.users.today}}</span>
                 </li>
             </ul>
         </div>
@@ -36,11 +36,11 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Всего чатов
-                    <span class="badge badge-primary badge-pill">999</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.im.count}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Сообщений
-                    <span class="badge badge-primary badge-pill">120</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.im.messages}}</span>
                 </li>
             </ul>
         </div>
@@ -51,11 +51,11 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Всего голосований
-                    <span class="badge badge-primary badge-pill">99</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.votes.count}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Открытых
-                    <span class="badge badge-primary badge-pill">12</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.votes.opened}}</span>
                 </li>
             </ul>
         </div>
@@ -66,7 +66,7 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Рекомендаций
-                    <span class="badge badge-primary badge-pill">99</span>
+                    <span class="badge badge-primary badge-pill">{{getStata.recommendations.count}}</span>
                 </li>
             </ul>
         </div>
@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
     name: 'MainData',
     components: {
@@ -86,6 +88,19 @@ export default {
 
         };
     },
+    mounted() {
+        this.loadStata();
+    },
+    computed: {
+        ...mapGetters({
+            getStata: 'stata/getStataList'
+        }),
+    },
+    methods: {
+        ...mapActions({
+            loadStata: 'stata/loadStata'
+        })
+    }
 }
 </script>
 

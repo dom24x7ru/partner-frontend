@@ -1,5 +1,4 @@
 import serverApi from '@/api/index'
-// console.log(serverApi)
 
 export default {
     namespaced: true,
