@@ -5,10 +5,13 @@
         </a>
         <ul class="mininav-content nav collapse">
             <li class="nav-item">
-                <router-link class="nav-link" to="/">Home</router-link>
+                <router-link class="nav-link" to="/">Консоль</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/about">About</router-link>
+                <router-link class="nav-link" to="/users">Пользователи</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link" to="/homes">Дома</router-link>
             </li>
         </ul>
     </li>
