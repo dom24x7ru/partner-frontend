@@ -2,11 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Paginate from 'vuejs-paginate'
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(VueLodash, { name: 'custom', lodash: lodash })
+Vue.component('PaginatePlug', Paginate)
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
