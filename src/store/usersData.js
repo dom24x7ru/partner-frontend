@@ -5,7 +5,7 @@ export default {
     state: {
         users: {},
         usersLimit: {},
-        paginateItems: []
+        // paginateItems: []
     },
     getters: {
         getUsersList(state) {
@@ -14,9 +14,6 @@ export default {
         getUsersLimitList(state) {
             return state.usersLimit
         },
-        // getPaginateItems(state) {
-        //     return state.paginateItems
-        // }
     },
     mutations: {
         SET_USERS_LIST(state, payload) {
@@ -25,14 +22,8 @@ export default {
         SET_USERS_LIMIT_LIST(state, payload) {
             state.usersLimit = payload
         },
-        // SET_PAGINATE_ITEMS(state, payload) {
-        //     state.paginateItems = payload
-        // }
     },
     actions: {
-        // loadPaginateItems({ commit }, payload) {
-        //     commit('SET_PAGINATE_ITEMS', payload)
-        // },
         async loadUsers({ commit }) {
             try {
                 const response = await serverApi.userList.getUsers()

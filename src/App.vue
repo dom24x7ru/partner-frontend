@@ -32,4 +32,33 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.pagination{
+    margin-left: 50px;
+}
+
+.article{
+    font-weight: bold;
+}
+
+.flex-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.justify-content-center {
+    margin-bottom: 0;
+}
+
+.showmore {
+    margin-left: 25px;
+}
+
+.content__top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+}
 </style>

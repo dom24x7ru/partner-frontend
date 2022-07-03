@@ -1,26 +1,26 @@
 <template>
 <tbody>
-    <tr v-for="(item, index) in homeList" :key="item + index">
+    <tr v-for="(item, index) in flatList" :key="item + index">
         <td class="text-center">
             {{item.id}}
         </td>
         <td>
-            {{item.address}}
+            {{item.number}}
         </td>
         <td class="text-center">
-            <span v-if="item.extra.type == 1">МКД</span>
-            <span v-else>Частный</span>
+            {{item.section}}
         </td>
         <td class="text-center">
-            {{item.extra.flats}}
+            {{item.floor}}
+        </td>
+        <td class="text-center">
+            {{item.rooms}}
+        </td>
+        <td class="text-center">
+            {{item.square}}
         </td>
         <td class="text-center">
             {{item.residents}}
-        </td>
-        <td class="text-center">
-            <router-link :to="`/homes/${item.id}`">
-                <a class="btn btn-info rounded-pill">Квартиры</a>
-            </router-link>
         </td>
         <td class="text-center">
             <ButtonMain class="btn-primary">Изменить</ButtonMain>
@@ -33,16 +33,16 @@
 import ButtonMain from '@/components/ui/Button'
 
 export default {
-    name: 'HomesList',
+    name: 'FlatsList',
     components: {
         ButtonMain
     },
-    props: ['homeList'],
+    props: ['flatList'],
 }
 </script>
 
 <style lang="scss" scoped>
-    td{
-        vertical-align: middle;
-    }
+td {
+    vertical-align: middle;
+}
 </style>

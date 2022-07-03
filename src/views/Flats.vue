@@ -1,11 +1,11 @@
 <template>
 <section id="content" class="content">
-    <div class="homes">
+    <div class="flats">
         <div class="content__wrap">
-            <h1>Дома</h1>
+            <h1>Квартиры</h1>
             <Table>
-                <TableHeaderHome slot="header"></TableHeaderHome>
-                <HomesList slot="body" :home-list="items"></HomesList>
+                <TableHeaderFlats slot="header"></TableHeaderFlats>
+                <FlatsList slot="body" :flat-list="items"></FlatsList>
             </Table>
             <div class="flex-wrapper">
                 <span class="article me-md-2">Показать на странице:</span>
@@ -23,7 +23,6 @@
                     :next-link-class="'page-link'" 
                     :click-handler="clickPaginate">
                 </PaginatePlug>
-                <Button class="btn-primary showmore" @click.native="showMore">Загрузить еще</Button>
             </div>
         </div>
     </div>
@@ -32,54 +31,45 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import HomesList from '@/components/homes/HomesList'
+import FlatsList from '@/components/homes/FlatsList'
 import Table from '@/components/layouts/TableMain'
-import TableHeaderHome from '@/components/homes/TableHeader'
+import TableHeaderFlats from '@/components/homes/TableHeaderFlats'
 import paginationMixin from '@/mixins/pagination.mixin'
 import Button from '@/components/ui/Button'
 
 export default {
-    name: 'HomesPage',
+    name: 'FlatsPage',
     mixins: [paginationMixin],
     components: {
         Table,
-        TableHeaderHome,
-        HomesList,
+        TableHeaderFlats,
+        FlatsList,
         Button
     },
     data() {
         return {
             limit: 100,
-            showFlats: false
-        };
+            flatId: this.$route.params['id']
+        }
     },
     mounted() {
-        this.loadLimitHomes({ limit: this.limit, offset: 0 })
+        this.loadFlats({id: this.flatId})
         this.setPaginate()
     },
     computed: {
         ...mapGetters({
-            getHomesLimitList: 'homes/getHomesLimitList',
+            getFlats: 'homes/getFlatList'
         }),
     },
     methods: {
         ...mapActions({
-            loadLimitHomes: 'homes/loadLimitHomes',
+            loadFlats: 'homes/loadFlats'
         }),
-        reloadHomesTable(){
-          this.loadLimitHomes({ limit: this.limit, offset: 0 })
-        },
-        showMore() {
-            this.limit = this.limit * 2;
-            this.loadLimitHomes({ limit: this.limit, offset: 0 })
-            this.setPaginate()
-        },
         setPaginate() {
             setTimeout(() => {
-                this.setupPagination(this.getHomesLimitList)
+                this.setupPagination(this.getFlats)
             }, 300);
         },
     }
 }
 </script>
-

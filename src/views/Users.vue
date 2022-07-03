@@ -1,7 +1,10 @@
 <template>
 <section id="content" class="content">
     <div class="content__wrap">
-        <h1>Пользователи</h1>
+        <div class="content__top">
+          <h1>Пользователи</h1>
+          <Button class="btn-primary btn-info" @click.native="reloadUserTable">Обновить данные</Button>
+        </div>
         <Table>
             <TableHeaderUser slot="header"></TableHeaderUser>
             <UserList slot="body" :user-list="items"></UserList>
@@ -41,9 +44,8 @@ export default {
         }
     },
     mounted() {
-        // this.loadUsers();
         this.loadLimitUsers({ limit: this.limit, offset: 0 })
-        this.setPaginate()
+        this.setPaginate(this.getUsersLimitList)
     },
     computed: {
         ...mapGetters({
@@ -55,51 +57,31 @@ export default {
         ...mapActions({
             loadUsers: 'users/loadUsers',
             loadLimitUsers: 'users/loadLimitUsers',
-            // loadPaginateItems: 'users/loadPaginateItems'
         }),
+        reloadUserTable(){
+          this.loadLimitUsers({ limit: this.limit, offset: 0 })
+        },
+        showMore() {
+            this.limit = this.limit * 2;
+            this.loadLimitUsers({ limit: this.limit, offset: 0 })
+            this.setPaginate(this.getUsersLimitList)
+        },
         setPaginate() {
             setTimeout(() => {
                 this.setupPagination(this.getUsersLimitList)
             }, 300);
         },
-        showMore() {
-            this.limit = this.limit * 2;
-            // console.log('limit ', this.limit)
-            this.loadLimitUsers({ limit: this.limit, offset: 0 })
-            this.setPaginate()
-        }, 
-        showMoreItemsOnPage(e){
-            let itemCount = e.currentTarget.getAttribute('data-items')
-            // alert(itemCount)
-            this.pageSize = itemCount
-            console.log(this.pageSize)
-            this.setPaginate()
-        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.pagination{
-    margin-left: 50px;
-}
-
 .article{
     font-weight: bold;
-}
-
-.flex-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
 }
 
 .justify-content-center {
     margin-bottom: 0;
 }
 
-.showmore {
-    margin-left: 25px;
-}
 </style>

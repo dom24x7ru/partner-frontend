@@ -14,16 +14,14 @@ export default {
             this.allItems = this.lodash.chunk(allItems, this.pageSize)
             this.items = this.allItems[this.page - 1] || this.allItems[0]
             this.pageCount = this.lodash.size(this.allItems)
-            console.log('this.pageCount ', this.pageCount)
         },
         clickPaginate(page) {
             this.items = this.allItems[page - 1] || this.allItems[0]
         },
-        showMore() {
-            this.limit = this.limit * 2;
-            console.log('limit ', this.limit)
-            this.loadLimitUsers({ limit: this.limit, offset: 0 });
-            this.setupPagination(this.getUsersLimitList)
-        }
+        showMoreItemsOnPage(e) {
+            let itemCount = e.currentTarget.getAttribute('data-items')
+            this.pageSize = itemCount
+            this.setPaginate()
+        },
     }
 }

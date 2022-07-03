@@ -5,6 +5,12 @@ export default function (instance) {
         },
         statisticData() {
             return instance.get('partner/stat')
+        },
+        getHomesLimit(limit, offset) {
+            return instance.get(`partner/houses/?limit=${limit}&offset=${offset}`)
+        },
+        getFlats(id) {
+            return instance.get(`partner/houses/${id}/flats`)
         }
         // getOneUser(id) {
         //     return instance.get(`user/${id}`)

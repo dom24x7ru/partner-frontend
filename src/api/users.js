@@ -6,5 +6,8 @@ export default function (instance) {
         getUsersLimit(limit, offset) {
             return instance.get(`partner/users/?limit=${limit}&offset=${offset}`)
         },
+        // blockUser(userId) {
+        //     return instance.get(`partner/users/?id=${userId}/block`)
+        // }
     }
 }

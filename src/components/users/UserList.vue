@@ -3,6 +3,7 @@
     <tr v-for="(item, index) in userList" :key="item + index">
         <td class="text-center">{{item.id}}</td>
         <td>
+            <Modal></Modal>
             <span>{{item.mobile}}</span>
         </td>
         <td class="text-center">
@@ -34,40 +35,16 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from 'vuex'
 import Button from '@/components/ui/Button'
-// import paginationMixin from '@/mixins/pagination.mixin'
+import Modal from '@/components/Modal'
 
 export default {
     name: 'UserList',
-    // mixins: [paginationMixin],
     props: ['userList'],
     components: {
-        Button
+        Button,
+        Modal
     },
-    mounted() {
-        // this.loadUsers()
-        // this.loadLimitUsers({limit: this.limit, offset: 0})
-        // this.setupPagination(this.getUsersLimitList)
-    },
-    data() {
-        return {
-            // limit: 100
-        };
-    },
-    computed: {
-        // ...mapGetters({
-        //     getUsersList: 'users/getUsersList',
-        //     getUsersLimitList: 'users/getUsersLimitList',
-        //     getPaginateItems: 'users/getPaginateItems'
-        // }),
-    },
-    methods: {
-        // ...mapActions({
-        //     loadUsers: 'users/loadUsers',
-        //     loadLimitUsers: 'users/loadLimitUsers'
-        // })
-    }
 }
 </script>
 
